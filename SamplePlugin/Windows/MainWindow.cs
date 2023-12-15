@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Numerics;
 using Dalamud.Interface.Internal;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
 
-namespace SamplePlugin.Windows;
+namespace HelpingWay.Windows;
 
 public class MainWindow : Window, IDisposable
 {
