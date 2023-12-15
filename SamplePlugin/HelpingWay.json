@@ -1,0 +1,13 @@
+{
+    "Author": "Nathan Jumaah",
+    "Name": "HelpingWay",
+    "Punchline": "Provides guides and information for bosses.",
+    "Description": "A Dalamud Plugin that provides players guides and information on several bosses throughout many Data Centers and Regions. List any major slash-command(s).",
+    "InternalName": "helpingWay",
+    "ApplicableVersion": "any",
+    "Tags": [
+        "guides",
+        "bosses",
+        "information"
+    ]
+}
