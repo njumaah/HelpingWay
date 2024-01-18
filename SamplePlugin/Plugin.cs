@@ -5,13 +5,14 @@ using System.IO;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
 using HelpingWay.Windows;
+using System.Diagnostics.CodeAnalysis;
 
 namespace HelpingWay
 {
     public sealed class Plugin : IDalamudPlugin
     {
-        public string Name => "Sample Plugin";
-        private const string CommandName = "/pmycommand";
+        public string Name => "Helping Way";
+        private const string CommandName = "/helpingway";
 
         private DalamudPluginInterface PluginInterface { get; init; }
         private ICommandManager CommandManager { get; init; }
@@ -31,13 +32,12 @@ namespace HelpingWay
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
 
-            // you might normally want to embed resources and load them from the manifest stream
-            var imagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "goat.png");
-            var goatImage = this.PluginInterface.UiBuilder.LoadImage(imagePath);
+            var imagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "trollface.png");
+            var trollfaceImage = this.PluginInterface.UiBuilder.LoadImage(imagePath);
 
             ConfigWindow = new ConfigWindow(this);
-            MainWindow = new MainWindow(this, goatImage);
-            
+            MainWindow = new MainWindow(this, trollfaceImage);
+
             WindowSystem.AddWindow(ConfigWindow);
             WindowSystem.AddWindow(MainWindow);
 
@@ -53,10 +53,10 @@ namespace HelpingWay
         public void Dispose()
         {
             this.WindowSystem.RemoveAllWindows();
-            
+
             ConfigWindow.Dispose();
             MainWindow.Dispose();
-            
+
             this.CommandManager.RemoveHandler(CommandName);
         }
 
